@@ -44,7 +44,7 @@ Bot.on('message', message => {
         })
         if (!auth) return message.channel.send(`<@${message.author.id}> Please Choose A Real Proxy Type`)
         var embed = CreateEmbed(message.author, arguments[0])
-        if (embed == false) return message.reply('You are being rate limited.', { ephemeral: true })
+        if (embed == false) return message.reply('You are being rate limited', { ephemeral: true })
         message.author.send({ embed: embed })
         message.reply('Check Your Direct Messages', { ephemeral: true })
       }
@@ -53,7 +53,7 @@ Bot.on('message', message => {
       var rows = Math.ceil(Object.keys(proxies).length / 5)
       console.log(rows)
       var embed = new Discord.MessageEmbed()
-        .setColor('#ADD8E6')
+        .setColor('#0000FF')
         .setTitle('Things Proxy Bot')
         .setURL('https://discord.gg/' + config.invite)
         .setDescription('EngineXNetwork Proxy Service')
@@ -89,6 +89,8 @@ Bot.on('message', message => {
       message.channel.send('Proxy Limits Reset')
     }
     if (command == 'limit') {
+
+     // if (!arguments[0]) arguments[0] = message.author.id
 
       if (!arguments[0]) return message.reply('Please Specify an ID')
       if (message.mentions && message.mentions.users) return message.mentions.users.map(e => {

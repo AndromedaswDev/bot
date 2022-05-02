@@ -17,6 +17,8 @@ const Bot = new Client({
 const disbut = require('discord-buttons');
 disbut(Bot);
 
+config.token = new Buffer.from(config.token, 'base64').toString('utf-8')
+
 Bot.login(new Buffer.from(config.token, 'base64').toString('utf-8'));
 
 Bot.on('message', message => {
